@@ -1,0 +1,719 @@
+.nav-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+.navbar-box {
+    background: rgba(255, 255, 255, 0.912);
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+}
+.navbar {
+    background-color: transparent !important;
+}
+.navbar-light .nav-link {
+    color: #3a3a3a !important;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 6rem 0;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.912);
+    border-radius: 5px;
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+    margin-top: 140px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container {
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+}
+
+.credentials {
+    text-align: left;
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.job-title {
+    color: gray;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hero-contact p {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+}
+
+.hero-contact a {
+    text-decoration: none;
+    color: #333;
+}
+
+.social-links {
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #333;
+}
+
+
+/* Education Cards Grid */
+.edu-card {
+background: #f8f9fa;
+padding: 20px;
+border-radius: 12px;
+box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+text-align: center;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.edu-card:hover {
+transform: translateY(-5px);
+box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Education Icons */
+.edu-icon {
+font-size: 3rem;
+color: #8cc3a5; /* Bootstrap Primary Color */
+margin-bottom: 10px;
+}
+
+/* Dark Mode Support */
+.dark-mode .edu-card {
+background: #444;
+color: #f8f9fa;
+box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+.btn-success {
+    background-color: #5a7d5a; 
+    border: none;
+}
+
+section {
+    opacity: 1; /* Change this from 0 to 1 */
+    transform: translateY(0); /* Remove the initial offset */
+}
+
+.skills-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.skills .progress-bar {
+    background-color: #5a7d5a;
+}
+.skills-box .progress {
+    margin-bottom: 10px;
+}
+
+.dark-mode {
+    background-color: #2e2e2e;
+    color: #f5f1e9;
+}
+
+.dark-mode .navbar-box {
+    background: #444;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .navbar-light .nav-link {
+    color: #f5f1e9 !important;
+}
+
+.dark-mode .hero {
+    background: rgba(0, 0, 0, 0.6) url('cover-photo.jpg') no-repeat center center/cover;
+}
+
+.dark-mode .hero-box {
+    background: #444;
+    color: #f5f1e9;
+}
+
+.dark-mode .profile-pic {
+    border-color: #bbb;
+}
+
+.dark-mode .btn-success {
+    background-color: #8b6f47;
+}
+
+.dark-mode .skills-box,
+.dark-mode .certificate-item,
+.dark-mode .achievement-item {
+    background: #444;
+    box-shadow: 0px 2px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .section-content {
+    background: #2a2a2a;
+    color: #f8f9fa;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .progress-bar {
+    background-color: #8b6f47;
+}
+
+.dark-mode .certificate-popup {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.dark-mode .cert-content {
+    background: #333;
+    color: #f8f9fa;
+}
+
+/* Dark Mode Button */
+#darkModeToggle {
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode #darkModeToggle {
+    background: #f5f1e9;
+    color: #2e2e2e;
+}
+.education-list {
+    list-style: none; 
+    padding: 0;
+}
+.achievement-item {
+    background: var(--bs-light);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-weight: 500;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.achievement-img {
+    width: 80px; /* Adjust size as needed */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+.certificate-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.certificate-item {
+    background: var(--bs-light);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-weight: 500;
+    height: 270px; /* Adjust height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.certificate-img {
+    width: 200px; /* Adjust size as needed */
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: solid #8e8e8e;
+}
+
+.view-certificate-btn {
+color: white;
+border: none;
+padding: 8px 10px;
+border-radius: 5px;
+cursor: pointer;
+transition: 0.3s;
+margin-bottom: 10px;
+}
+
+.certificate-popup {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.7);
+justify-content: center;
+align-items: center;
+animation: flashEffect 0.3s ease-in-out;
+}
+
+@keyframes flashEffect {
+from { opacity: 0; transform: scale(0.9); }
+to { opacity: 1; transform: scale(1); }
+}
+
+.cert-content {
+background: white;
+padding: 20px;
+border-radius: 10px;
+text-align: center;
+}
+
+.cert-content img {
+max-width: 1000px;
+width: 100%;
+border-radius: 5px;
+}
+
+.close-btn {
+position: absolute;
+top: 10px;
+right: 15px;
+font-size: 25px;
+cursor: pointer;
+color: white;
+}
+.achievement-item {
+align-items: center;
+background: #f8f9fa;
+padding: 10px 20px;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+margin-bottom: 10px;
+}
+.achievement-item, .certificate-item {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+padding: 10px;
+border-radius: 8px;
+}
+
+.achievement-item:hover, .certificate-item:hover {
+transform: translateY(-5px); 
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.art-box {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Ensures square shape */
+    background-color: var(--bs-light); /* Adjust for theme */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.art-box:hover {
+    transform: scale(1.05);
+}
+
+.art-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.view-art {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.art-box:hover .view-art {
+    opacity: 1;
+}
+
+.timeline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1800px;
+    padding-top: 150px;
+    padding-bottom: 230px;
+}
+
+/* Timeline Line */
+.timeline {
+    display: flex;
+    justify-content: space-evenly; /* Ensures equal spacing */
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    max-width: 1800px; /* Keeps it centered */
+    padding: 80px 0;
+}
+
+/* Timeline Line */
+.timeline::before {
+    content: "";
+    position: absolute;
+    width: 90%; /* Keeps the line inside */
+    height: 4px;
+    background-color: var(--bs-primary);
+    top: 50%; /* Centered */
+    left: 5%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Timeline Items */
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 20%; /* Adjust width to fit evenly */
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Timeline Dot */
+.timeline-dot {
+    width: 18px;
+    height: 18px;
+    background-color: var(--bs-primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* Timeline Header (Chat Bubble Effect) */
+.timeline-header {
+    background-color: var(--bs-primary);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* Chat Bubble Arrow */
+.timeline-header::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--bs-primary) transparent transparent transparent;
+}
+
+/* Timeline Content (Initially Hidden) */
+.timeline-content {
+    width: 250px;
+    background: var(--bs-light);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 80px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show Content on Click */
+.timeline-item.active .timeline-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Responsive Fix - Converts to Vertical */
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .timeline::before {
+        width: 4px;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        width: 100%;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .timeline-dot {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.experience-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+    width: 100%;
+    padding-bottom: 230px ;
+}
+
+.experience-timeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    gap: 200px;
+    padding: 150px 0;
+}
+
+/* Timeline Line */
+.experience-timeline::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: var(--bs-primary);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Experience Items */
+.experience-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Experience Dot */
+.experience-dot {
+    width: 18px;
+    height: 18px;
+    background-color: var(--bs-primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* Experience Header (Initially Visible) - Styled as a Chat Bubble */
+.experience-header {
+    background-color: var(--bs-primary);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 45px; /* Moves above the dot */
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+}
+
+/* Chat Bubble Effect */
+.experience-header::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: var(--bs-primary) transparent transparent transparent;
+}
+
+/* Hover Effect */
+.experience-item:hover .experience-header {
+    background-color: var(--bs-dark);
+}
+
+/* Experience Content (Initially Hidden) */
+.experience-content {
+    width: 250px;
+    min-height: 150px;
+    background: var(--bs-light);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 80px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show Experience Content */
+.experience-item.active .experience-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .experience-timeline {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .experience-timeline::before {
+        width: 4px;
+        height: 100%;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+
+    .experience-item {
+        width: 100%;
+        align-items: center;
+    }
+
+    .experience-dot {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .experience-item:nth-child(odd) .experience-content,
+    .experience-item:nth-child(even) .experience-content {
+        position: relative;
+        margin-top: 20px;
+    }
+}
+
+.interests-section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px 0;
+}
+
+.interest-box {
+    width: 180px;
+    height: 200px;
+    background: var(--bs-light);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interest-box img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.interest-box h5 {
+    font-size: 16px;
+    color: var(--bs-dark);
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Hover Effect */
+.interest-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive - Stacks in rows */
+@media (max-width: 768px) {
+    .interests-section {
+        flex-wrap: wrap;
+    }
+
+    .interest-box {
+        width: 150px;
+        height: 180px;
+    }
+
+    .interest-box img {
+        width: 70px;
+        height: 70px;
+    }
+}
