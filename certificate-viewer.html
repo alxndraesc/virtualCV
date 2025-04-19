@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate Viewer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fdfdfd;
+    }
+    .certificate-img {
+      max-width: 100%;
+      max-height: 90vh;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+    }
+    .back-button {
+      margin-top: 2rem;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <img id="certImage" class="certificate-img" alt="Certificate">
+
+  <a href="index.html#portfolio" class="back-button">← GO BACK</a>
+
+  <script>
+    // Get the cert query parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const certKey = urlParams.get('cert');
+
+    // Map of certificate keys to image paths
+    const certMap = {
+      hardware: 'certificates/Computer Hardware Basics-1.png',
+      ethical: 'certificates/Ethical Hacker-1.png',
+      python: 'certificates/Python Essentials 1-1.png',
+      analytics: 'certificates/Data Analytics.png',
+      robotics: 'certificates/Mobile Robotics.png'
+    };
+
+    const certImage = document.getElementById('certImage');
+
+    if (certMap[certKey]) {
+      certImage.src = certMap[certKey];
+    } else {
+      certImage.alt = 'Certificate not found.';
+      certImage.style.display = 'none';
+      document.body.insertAdjacentHTML('afterbegin', `<p>Certificate not found.</p>`);
+    }
+  </script>
+
+</body>
+</html>

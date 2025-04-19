@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual CV</title>
+    <title>ESCUREL - Virtual CV</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/lux/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
         body {
-            background-color: #f3f3f3; /* Neutral beige */
-            color: #3a3a3a; /* Dark gray for text */
+            background-color: #f3f3f3;
+            color: #3a3a3a;
             font-family: 'Host Grotesk';
             overflow-x: hidden;
         }
@@ -41,15 +42,13 @@
                             <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                         </ul>
                     </div>
-                    <button class="btn btn-dark ms-3" id="darkModeToggle">🌙</button>
                 </div>
             </nav>
         </div>
     </div>
     
     <header class="hero">
-    
-        <div class="hero-box">
+        <div class="hero-box"id="floatingProfile">
             <div class="profile-container">
                 <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
             </div>
@@ -76,114 +75,152 @@
             </div>
         </div>
     </header>
-    
-    
-    
-    <section id="about" class="mt-5 active text-center">
-        <h3 class="mb-4"><strong>ABOUT ME</strong></h3><br>
-    
-        <p class="intro-text">
-            <!-- Add your introduction here -->
-        </p>
 
-        <h4><strong>Skills</strong></h4>
+    <script>
+        const heroBox = document.querySelector('.hero-box');
+
+        window.addEventListener('scroll', () => {
+        if (window.scrollY > 150) {
+            heroBox.classList.add('collapsed');
+        } else {
+            heroBox.classList.remove('collapsed');
+        }
+        });
+    </script>
     
-        <div class="row justify-content-center">
-            <!-- Technical Skills -->
-            <div class="col-md-5">
-                <h5 class="mb-2">Technical Skills</h5>
-                <div class="skills-box p-4 shadow-sm bg-white rounded">
-                    <div class="progress mb-4">
-                        <div class="progress-bar" style="width: 80%">Digital Drawing</div>
-                    </div>
-                    <div class="progress mb-4">
-                        <div class="progress-bar" style="width: 70%">Animation</div>
-                    </div>
-                    <div class="progress mb-4">
-                        <div class="progress-bar" style="width: 75%">HTML/CSS</div>
-                    </div>
-                    <div class="progress mb-4">
-                        <div class="progress-bar" style="width: 60%">Document Management</div>
-                    </div>
+    
+    
+
+<section id="about" class="mt-5 active-section text-center" data-aos="fade-up">
+    <h3 class="mb-4"><strong>ABOUT ME</strong></h3><br>
+
+    <div class="about-me-container" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000" data-aos-easing="ease-in-out">
+        <p class="intro-text">
+            I am driven by a deep curiosity for all things design. I find joy in exploring both familiar concepts and new ideas, always eager to expand my knowledge and skills. A self-explored digital artist, I embrace creative challenges and continuously refine my craft and enjoy experimenting with it when inspiration strikes. I highly value teamwork and collaboration, believing that great ideas often emerge through strong partnerships. Adaptable and open-minded, I thrive in diverse environments, constantly seeking opportunities to learn and grow in areas that spark my interest.
+        </p>
+    </div>
+    
+
+    <h4 data-aos="fade-right" data-aos-delay="100">Skills</h4>
+
+    <div class="row justify-content-center">
+        <!-- Technical Skills -->
+        <div class="col-md-5" data-aos="fade-up" data-aos-delay="300">
+            <h5 class="mb-2">Technical Skills</h5>
+            <div class="skills-box p-4 shadow-sm bg-white rounded">
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 75%">HTML</div>
                 </div>
-            </div>
-    
-            <!-- Soft Skills -->
-            <div class="col-md-5">
-                <h5 class="mb-2">Soft Skills</h5>
-                <div class="skills-box p-4 shadow-sm bg-white rounded">
-                    <div class="progress mb-4">
-                        <div class="progress-bar" style="width: 75%">Communication</div>
-                    </div>
-                    <div class="progress mb-4">
-                        <div class="progress-bar" style="width: 90%">Creativity</div>
-                    </div>
-                    <div class="progress mb-4">
-                        <div class="progress-bar" style="width: 78%">Adaptability</div>
-                    </div>
-                    <div class="progress mb-4">
-                        <div class="progress-bar" style="width: 85%">Technical Writing</div>
-                    </div>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 65%">CSS</div>
+                </div>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 50%">Laravel</div>
+                </div>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 70%">Document Management</div>
+                </div>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 80%">Digital Drawing</div>
+                </div>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 70%">Animation</div>
                 </div>
             </div>
         </div>
-        <br><br>
 
-        <section id="interests" class="container mt-5">
-            <h4 class="text-center"><strong>INTERESTS</strong></h4>
-            <div class="interests-section">
-                <div class="interest-box">
-                    <img src="path-to-image1.jpg" alt="Interest 1">
-                    <h5>Music</h5>
+        <!-- Soft Skills -->
+        <div class="col-md-5" data-aos="fade-up" data-aos-delay="400">
+            <h5 class="mb-2">Soft Skills</h5>
+            <div class="skills-box p-4 shadow-sm bg-white rounded">
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 75%">Communication</div>
                 </div>
-                <div class="interest-box">
-                    <img src="path-to-image2.jpg" alt="Interest 2">
-                    <h5>Reading</h5>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 78%">Adaptability</div>
                 </div>
-                <div class="interest-box">
-                    <img src="path-to-image3.jpg" alt="Interest 3">
-                    <h5>Digital Art</h5>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 85%">Technical Writing</div>
                 </div>
-                <div class="interest-box">
-                    <img src="path-to-image4.jpg" alt="Interest 4">
-                    <h5>Animation</h5>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 75%">Time Management</div>
                 </div>
-                <div class="interest-box">
-                    <img src="path-to-image5.jpg" alt="Interest 5">
-                    <h5>Painting</h5>
+                <div class="progress mb-4">
+                    <div class="progress-bar" style="width: 90%">Creativity</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+<br><br><br>
+
+    <h4 class="text-center" data-aos="fade-right" data-aos-delay="100">INTERESTS</h4>
+    <div class="interests-section d-flex justify-content-center flex-wrap gap-4 mt-4">
+        <div class="interest-box" data-aos="zoom-in" data-aos-delay="300">
+            <img src="icons/headphones.png" alt="Interest 1">
+            <h5>Music</h5>
+        </div>
+        <div class="interest-box" data-aos="zoom-in" data-aos-delay="350">
+            <img src="icons/reading.png" alt="Interest 2">
+            <h5>Reading</h5>
+        </div>
+        <div class="interest-box" data-aos="zoom-in" data-aos-delay="400">
+            <img src="icons/digital-drawing.png" alt="Interest 3">
+            <h5>Digital Art</h5>
+        </div>
+        <div class="interest-box" data-aos="zoom-in" data-aos-delay="450">
+            <img src="icons/animation.png" alt="Interest 4">
+            <h5>Animation</h5>
+        </div>
+        <div class="interest-box" data-aos="zoom-in" data-aos-delay="500">
+            <img src="icons/starry-night.png" alt="Interest 5">
+            <h5>Photography</h5>
+        </div>
+    </div>
         <br><br>
+</section>
+   
         
-        <section id="education" class="container mt-5">
+        <section id="education" class="container mt-5  section-hidden" data-aos="fade-up">
             <h3 class="text-center"><strong>EDUCATION</strong></h3>
             <div class="timeline-container">
                 <div class="timeline">
-                    <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <!-- College -->
+                    <div class="timeline-item" onclick="toggleTimeline(this)" data-aos="fade-up" data-aos-delay="100">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-header">Bachelor's Degree</div>
+                        <div class="timeline-header floating">
+                            <img src="logos/logo-sorsu.png" alt="College Logo" class="school-logo">
+                            <span>College Degree</span>
+                        </div>
                         <div class="timeline-content">
                             <h5>Bachelor of Science in Information Technology</h5>
                             <p>Sorsogon State University - Bulan Campus</p>
                             <p>2021 – 2025</p>
                         </div>
                     </div>
-                    
-                    <div class="timeline-item" onclick="toggleTimeline(this)">
+        
+                    <!-- SHS -->
+                    <div class="timeline-item" onclick="toggleTimeline(this)" data-aos="fade-up" data-aos-delay="200">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-header">Senior High School</div>
+                        <div class="timeline-header floating">
+                            <img src="logos/logo-gnhs.png" alt="SHS Logo" class="school-logo">
+                            <span>Senior High School</span>
+                        </div>
                         <div class="timeline-content">
                             <h5>Senior High School</h5>
                             <p>Accountancy, Business and Management</p>
                             <p>Gubat National High School</p>
+                            <p>With Honors</p>
                             <p>2019 – 2021</p>
                         </div>
                     </div>
         
-                    <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <!-- JHS -->
+                    <div class="timeline-item" onclick="toggleTimeline(this)" data-aos="fade-up" data-aos-delay="300">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-header">Junior High School</div>
+                        <div class="timeline-header floating">
+                            <img src="logos/logo-gnhs.png" alt="JHS Logo" class="school-logo">
+                            <span>Junior High School</span>
+                        </div>
                         <div class="timeline-content">
                             <h5>Junior High School</h5>
                             <p>Gubat National High School</p>
@@ -191,12 +228,17 @@
                         </div>
                     </div>
         
-                    <div class="timeline-item" onclick="toggleTimeline(this)">
+                    <!-- Primary -->
+                    <div class="timeline-item" onclick="toggleTimeline(this)" data-aos="fade-up" data-aos-delay="400">
                         <div class="timeline-dot"></div>
-                        <div class="timeline-header">Primary Education</div>
+                        <div class="timeline-header floating">
+                            <img src="logos/logo-gncs.png" alt="Primary Logo" class="school-logo">
+                            <span>Primary Education</span>
+                        </div>
                         <div class="timeline-content">
                             <h5>Primary Education</h5>
                             <p>Gubat North Central School</p>
+                            <p>Academic Achiever</p>
                             <p>2009 – 2015</p>
                         </div>
                     </div>
@@ -205,195 +247,292 @@
         </section>
         
         <script>
-        function toggleTimeline(item) {
-            // Close any open timeline content
+                function toggleTimeline(item) {
             document.querySelectorAll(".timeline-item").forEach(el => {
                 if (el !== item) {
                     el.classList.remove("active");
+                    el.querySelector(".timeline-header").style.opacity = "1";
                 }
             });
-        
-            // Toggle clicked timeline content
+
             item.classList.toggle("active");
+            let header = item.querySelector(".timeline-header");
+            let content = item.querySelector(".timeline-content");
+
+            if (item.classList.contains("active")) {
+                header.style.opacity = "0";
+                content.classList.add("top-content"); // Ensures the popup moves above
+            } else {
+                header.style.opacity = "1";
+                content.classList.remove("top-content");
+            }
         }
         </script>
         
         
-    <section id="portfolio" class="container mt-5">
-        <h3 class="text-center"><strong>PORTFOLIO</strong></h3><br>
+        <section id="portfolio" class="container mt-5 section-hidden" data-aos="fade-up">
+            <h3 class="text-center"><strong>PORTFOLIO</strong></h3><br><br>
+        
+            <!-- Achievements -->
+            <div class="section-content achievements" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-center" data-aos="fade-right" data-aos-delay="100">Academic Achievements</h4><br>
+                <div class="achievement-list row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4">
+                    <div class="col" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="achievement-item">
+                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                            <p><strong>Dean's Lister</strong><br> Second Semester<br> A.Y. 2021-2022</p>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="achievement-item">
+                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                            <p><strong>Dean's Lister</strong><br> First Semester<br> A.Y. 2022-2023</p>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="achievement-item">
+                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                            <p><strong>Dean's Lister</strong><br> Second Semester<br> A.Y. 2022-2023</p>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="achievement-item">
+                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                            <p><strong>Dean's Lister</strong><br> First Semester<br> A.Y. 2023-2024</p>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="achievement-item">
+                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                            <p><strong>Dean's Lister</strong><br> Second Semester<br> A.Y. 2023-2024</p>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="achievement-item">
+                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                            <p><strong>Dean's Lister</strong><br> First Semester<br> A.Y. 2024-2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <br><br><br>
+        
+        
+       <!-- Certificates Section -->
+<!-- Certificate Section with Redirect Links -->
+<div class="section-content certificates" data-aos="fade-up" data-aos-delay="100">
+    <h4 class="text-center" data-aos="fade-right" data-aos-delay="100">Certificates</h4><br>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <div class="col" data-aos="zoom-in" data-aos-delay="100">
+        <div class="certificate-item">
+          <img src="certificates/Computer Hardware Basics-1.png" alt="Certificate Image" class="certificate-img">
+          <p>Computer Hardware Basics</p>
+          <a href="certificate-viewer.html?cert=hardware" class="view-certificate">
+            <i class="bi bi-eye" style="font-size: 1.5rem; cursor: pointer;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col" data-aos="zoom-in" data-aos-delay="200">
+        <div class="certificate-item">
+          <img src="certificates/Ethical Hacker-1.png" alt="Certificate Image" class="certificate-img">
+          <p>Ethical Hacker</p>
+          <a href="certificate-viewer.html?cert=ethical" class="view-certificate">
+            <i class="bi bi-eye" style="font-size: 1.5rem; cursor: pointer;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col" data-aos="zoom-in" data-aos-delay="300">
+        <div class="certificate-item">
+          <img src="certificates/Python Essentials 1-1.png" alt="Certificate Image" class="certificate-img">
+          <p>Python Essentials 1</p>
+          <a href="certificate-viewer.html?cert=python" class="view-certificate">
+            <i class="bi bi-eye" style="font-size: 1.5rem; cursor: pointer;"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col" data-aos="zoom-in" data-aos-delay="300">
+        <div class="certificate-item">
+          <img src="certificates/Data Analytics.png" alt="Certificate Image" class="certificate-img">
+          <p>Data Analytics Essentials</p>
+          <a href="certificate-viewer.html?cert=analytics" class="view-certificate">
+            <i class="bi bi-eye" style="font-size: 1.5rem; cursor: pointer;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      <div class="col" data-aos="zoom-in" data-aos-delay="100">
+        <div class="certificate-item">
+          <img src="certificates/Mobile Robotics.png" alt="Certificate Image" class="certificate-img">
+          <p>Basics of Mobile Robotics 101</p>
+          <a href="certificate-viewer.html?cert=robotics" class="view-certificate">
+            <i class="bi bi-eye" style="font-size: 1.5rem; cursor: pointer;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="file-explorer-container" data-aos="fade-up" data-aos-delay="100">
+    <h4 data-aos="fade-right" data-aos-delay="100">Experience & Projects</h4><br><br>
+  
+    <!-- Folder Icons -->
+    <div class="folder-grid" data-aos="zoom-in" data-aos-delay="200">
+      <div class="folder" onclick="openWindow('capstoneWindow')">
+        📁 Capstone_Project
+      </div>
+      <div class="folder" onclick="openWindow('internshipWindow')">
+        📁 Internship_DICT
+      </div>
+    </div>
+  
+    <!-- Capstone Window -->
+    <div id="capstoneWindow" class="floating-window hidden" data-aos="fade-up" data-aos-delay="300">
+      <div class="window-header">
+        <span>capstone_project.txt</span>
+        <button onclick="closeWindow('capstoneWindow')">✕</button>
+      </div>
+      <div class="window-body">
+        <h3>Web-Based Pharmacy Management System with GIS Mapping</h3>
+        <p><strong>Duration:</strong> Feb 2024 - Dec 2024</p>
+        <p><strong>PROGRAMMER</strong></p>
+        <ul>
+          <li>Developed and coded for key features using PHP and Laravel Framework.</li>
+          <li>Implemented functional features in alignment with the project’s objectives.</li>
+        </ul>
+        <p><strong>Key Features:</strong></p>
+        <div class="feature-item">🛡️ Account Management & Role-Based Access</div>
+        <div class="feature-item">💊 Pharmacy Management</div>
+        <div class="feature-item">🔍 Item Search & Real-Time Inventory Tracking</div>
+        <div class="feature-item">📍 Pharmacy Locating</div>
+        <br>
+        <p><strong>Tech Stack:</strong> Laravel, PHP, Bootstrap, JavaScript, MySQL</p>
+      </div>
+    </div>
+  
+    <!-- Internship Window -->
+    <div id="internshipWindow" class="floating-window hidden" data-aos="fade-up" data-aos-delay="400">
+      <div class="window-header">
+        <span>internship_dict.txt</span>
+        <button onclick="closeWindow('internshipWindow')">✕</button>
+      </div>
+      <div class="window-body">
+        <h3>Internship @ DICT Region V, Sorsogon Provincial Office</h3>
+        <p><strong>Duration:</strong> Jan 2025 - April 2025</p>
+        <p><strong>INTERN</strong></p>
+        <ul>
+          <li>Assisted in various administrative tasks, such as preparation of reports, documentation, and daily activity logs.</li>
+          <li>Supported field operations and participated in on-site technical work.</li>
+          <li>Delivered short discussions on technology-related topics such as Cyber Hygiene and Mobile Robotics.</li>
+          <li>Collaborated with team members to ensure smooth coordination between administrative and field activities.</li>
+          <li>Enrolled in and completed relevant online courses to further develop technical and professional skills.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script>
+    function openWindow(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+  
+    function closeWindow(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+  </script>
     
-        <div class="section-content achievements">
-            <h4 class="text-center">Academic Achievements</h4><br>
-            <div class="achievement-list row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                <div class="col">
-                    <div class="achievement-item">
-                        <img src="certificate.png" alt="Achievement Image" class="achievement-img">
-                        <p><strong>Dean's Lister</strong><br> First Semester<br> A.Y. 2022-2023</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="achievement-item">
-                        <img src="certificate.png" alt="Achievement Image" class="achievement-img">
-                        <p><strong>Dean's Lister</strong><br> Second Semester<br> A.Y. 2022-2023</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="achievement-item">
-                        <img src="certificate.png" alt="Achievement Image" class="achievement-img">
-                        <p><strong>Dean's Lister</strong><br> First Semester<br> A.Y. 2023-2024</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="achievement-item">
-                        <img src="certificate.png" alt="Achievement Image" class="achievement-img">
-                        <p><strong>Dean's Lister</strong><br> Second Semester<br> A.Y. 2023-2024</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br><br>
-        
-        <div class="section-content certificates">
-            <h4 class="text-center">Certificates</h4><br>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                <div class="col">
-                    <div class="certificate-item">
-                        <img src="certificates/Computer Hardware Basics-1.png" alt="Certificate Image" class="certificate-img">
-                        <p>Computer Hardware Basics</p>
-                        <button class="view-certificate" data-cert="cert-hardware" style="background: none; border: none; padding: 0;">
-                            <i class="bi bi-eye" style="font-size: 1.5rem; color: var(--bs-primary); cursor: pointer;"></i>
-                        </button>                                               
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="certificate-item">
-                        <img src="certificates/Ethical Hacker-1.png" alt="Certificate Image" class="certificate-img">
-                        <p>Ethical Hacker</p>
-                        <button class="view-certificate" data-cert="cert-hardware" style="background: none; border: none; padding: 0;">
-                            <i class="bi bi-eye" style="font-size: 1.5rem; color: var(--bs-primary); cursor: pointer;"></i>
-                        </button>    
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="certificate-item">
-                        <img src="certificates/Python Essentials 1-1.png" alt="Certificate Image" class="certificate-img">
-                        <p>Python Essentials 1</p>
-                        <button class="view-certificate" data-cert="cert-hardware" style="background: none; border: none; padding: 0;">
-                            <i class="bi bi-eye" style="font-size: 1.5rem; color: var(--bs-primary); cursor: pointer;"></i>
-                        </button>    
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Hidden Certificate Popups -->
-        <div class="certificate-popup" id="cert-hardware">
-            <div class="cert-content">
-                <span class="close-btn">&times;</span>
-                <img src="certificates/Computer Hardware Basics-1.png" alt="Hardware Basics Certificate">
-            </div>
-        </div>
-        
-        <div class="certificate-popup" id="cert-ethical">
-            <div class="cert-content">
-                <span class="close-btn">&times;</span>
-                <img src="certificates/Ethical Hacker-1.png" alt="Ethical Hacker Certificate">
-            </div>
-        </div>
-        
-        <div class="certificate-popup" id="cert-python">
-            <div class="cert-content">
-                <span class="close-btn">&times;</span>
-                <img src="certificates/Python Essentials 1-1.png" alt="Python Essentials Certificate">
-            </div>
-        </div>
-    <br><br>
-
-
-        <section class="experience-section">
-            <h4><strong>Experience</strong></h4>
-            <div class="experience-timeline">
-                <div class="experience-item" onclick="toggleExperience(this)">
-                    <div class="experience-dot"></div>
-                    <div class="experience-header">Capstone<br> Project</div>
-                    <div class="experience-content">
-                        <h3>Programmer - Capstone Project</h3>
-                        <p><strong>Duration:</strong> Feb 2024 - Dec 2024</p>
-                        <p><strong>Responsibilities:</strong> Developed and maintained website functionalities using modern web technologies.</p>
-                    </div>
-                </div>
-        
-                <div class="experience-item" onclick="toggleExperience(this)">
-                    <div class="experience-dot"></div>
-                    <div class="experience-header">DICT Sorsogon<br>Internship</div>
-                    <div class="experience-content">
-                        <h3>Intern at DICT Sorsogon</h3>
-                        <p><strong>Duration:</strong> Jan 2025 - April 2025</p>
-                        <p><strong>Projects:</strong> Created website mockups, UI/UX designs, and brand assets for clients.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-
-        <script>
-            function toggleExperience(item) {
-                // Close any open experience content
-                document.querySelectorAll(".experience-item").forEach(el => {
-                    if (el !== item) {
-                        el.classList.remove("active");
-                    }
-                });
-
-                // Toggle clicked experience content
-                item.classList.toggle("active");
-            }
-
-        </script>
+    
     
     <br><br> <br><br>
 
-        <h4>Digital Art Gallery</h4><br>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="art-box">
-                    <img src="art1.jpg" alt="Digital Art 1" class="art-img">
-                    <button class="btn btn-outline-light view-art" data-bs-toggle="modal" data-bs-target="#artModal" data-art="art1.jpg">View</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="art-box">
-                    <img src="art2.jpg" alt="Digital Art 2" class="art-img">
-                    <button class="btn btn-outline-light view-art" data-bs-toggle="modal" data-bs-target="#artModal" data-art="art2.jpg">View</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="art-box">
-                    <img src="art3.jpg" alt="Digital Art 3" class="art-img">
-                    <button class="btn btn-outline-light view-art" data-bs-toggle="modal" data-bs-target="#artModal" data-art="art3.jpg">View</button>
-                </div>
-            </div>
-            <div class="col">
-                <div class="art-box">
-                    <img src="art4.jpg" alt="Digital Art 4" class="art-img">
-                    <button class="btn btn-outline-light view-art" data-bs-toggle="modal" data-bs-target="#artModal" data-art="art4.jpg">View</button>
-                </div>
-            </div>
-        </div>
+    <div class="scroll-gallery-container" data-aos="fade-up">
+      <h4 class="mb-4" data-aos="fade-right" data-aos-delay="100">Gallery</h4>
+      <br><br>
     
-    <!-- Modal -->
-    <div class="modal fade" id="artModal" tabindex="-1" aria-labelledby="artModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body text-center">
-                    <img id="modalArtImage" src="" class="img-fluid">
-                </div>
-            </div>
+      <!-- Top Scroll Row -->
+      <div class="scroll-row scroll-left" data-aos="zoom-in-up" data-aos-delay="200">
+        <div class="scroll-track">
+          <div class="art-card"><img src="images-gallery/IMG-005.jpg" alt=""></div>
+          <div class="art-card"><img src="images-gallery/IMG-001.jpg" alt=""></div>
+          <div class="art-card"><img src="images-gallery/IMG-020.jpg" alt=""></div>
+          <div class="art-card"><img src="images-gallery/IMG-013.jpg" alt=""></div>
+          <div class="art-card"><img src="images-gallery/IMG-017.jpg" alt=""></div>
+          <div class="art-card"><img src="images-gallery/IMG-003.jpg" alt=""></div>
+          <div class="art-card"><img src="images-gallery/IMG-014.jpg" alt=""></div>
         </div>
+      </div>
+    
+      <div class="scroll-separator my-4" data-aos="fade-in" data-aos-delay="300"></div>
+    
+      <!-- Button to Gallery Page -->
+      <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+        <a href="gallery.html" class="btn btn-outline-dark d-inline-flex align-items-center gap-2">
+          Click to see more
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    
+      <div class="scroll-separator my-4" data-aos="fade-in" data-aos-delay="500"></div>
+    
+      <!-- Bottom Scroll Row -->
+      <div class="scroll-row scroll-right mt-4" data-aos="zoom-in-down" data-aos-delay="600">
+        <div class="scroll-track">
+          <div class="art-card"><img src="art5.jpg" alt=""></div>
+          <div class="art-card"><img src="art6.jpg" alt=""></div>
+          <div class="art-card"><img src="art7.jpg" alt=""></div>
+          <div class="art-card"><img src="art8.jpg" alt=""></div>
+          <div class="art-card"><img src="art5.jpg" alt=""></div>
+          <div class="art-card"><img src="art6.jpg" alt=""></div>
+          <div class="art-card"><img src="art7.jpg" alt=""></div>
+          <div class="art-card"><img src="art8.jpg" alt=""></div>
+        </div>
+      </div>
     </div>
+         
 
     </section>
+
+    <footer>
+        &copy; 2025 alxndraesc - All Rights Reserved
+      </footer>
     
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const navLinks = document.querySelectorAll(".nav-link");
+          const sections = document.querySelectorAll("section");
+      
+          // Hide all sections initially
+          sections.forEach(section => section.classList.add("section-hidden"));
+      
+          navLinks.forEach(link => {
+            link.addEventListener("click", function (e) {
+              e.preventDefault();
+              const targetId = this.getAttribute("href").substring(1);
+      
+              // Hide all sections
+              sections.forEach(section => {
+                section.classList.remove("active-section");
+                section.classList.add("section-hidden");
+              });
+      
+              // Show the target section
+              const targetSection = document.getElementById(targetId);
+              if (targetSection) {
+                targetSection.classList.remove("section-hidden");
+                targetSection.classList.add("active-section");
+                AOS.refresh(); // 🔄 Re-trigger AOS animations
+              }
+            });
+          });
+        });
+      </script>
+      
+        
+      
     <script>
             document.addEventListener("DOMContentLoaded", function() {
                 document.querySelectorAll(".view-art").forEach(button => {
@@ -404,40 +543,29 @@
                 });
             });
     </script>
-    
-    
-    <script>
-        document.getElementById('darkModeToggle').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    navLinks.forEach(link => {
-        if (document.body.classList.contains('dark-mode')) {
-            link.style.color = "#f5f1e9";
-        } else {
-            link.style.color = "#3a3a3a";
-        }
-    });
-});
 
-    </script>
-
-
-</script>
 <script>
-    document.querySelectorAll('.view-certificate').forEach(button => {
-    button.addEventListener('click', () => {
-        const certId = button.getAttribute('data-cert');
-        document.getElementById(certId).style.display = "flex";
-    });
+    // Open popup
+document.querySelectorAll('[data-cert]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.getAttribute('data-cert');
+    document.getElementById(targetId).style.display = 'flex';
+  });
 });
 
-document.querySelectorAll('.close-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        button.closest('.certificate-popup').style.display = "none";
-    });
+// Close popup
+document.querySelectorAll('.certificate-popup .close-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.closest('.certificate-popup').style.display = 'none';
+  });
 });
 </script>
     
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+  });
+</script>
 </body>
 </html>

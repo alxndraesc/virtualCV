@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/lux/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .artist-name {
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 3px;
+    }
+
+    .gallery-section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .gallery-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .gallery-filters {
+      margin-bottom: 2rem;
+    }
+
+    .gallery-filters button {
+      background: #ddd;
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .gallery-filters button:hover {
+      background: #333;
+      color: white;
+      transform: scale(1.05);
+    }
+
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding: 1rem;
+      text-align: center;
+      background: #f1f1f1;
+    }
+    .nav-right i,
+    .nav-left i {
+      margin-right: 0.4rem;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-links d-flex justify-content-between align-items-center w-100 px-3">
+      <div class="nav-left">
+        <a href="index.html" class="text-decoration-none text-dark fw-bold">
+          <i class="bi bi-arrow-left"></i> Home
+        </a>
+      </div>
+
+      <div class="nav-right d-flex gap-3">
+        <a href="#" id="show-gallery" class="text-decoration-none text-dark fw-bold">
+          <i class="bi bi-images"></i> Gallery
+        </a>
+        <a href="#" id="show-digital" class="text-decoration-none text-dark fw-bold">
+          <i class="bi bi-brush"></i> Digital Art
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="hero" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-offset="0">
+    <img id="hero-image" src="images-gallery/IMG-010.jpg" alt="Featured Artwork">
+    <div class="artist-name" data-aos="fade-up" data-aos-delay="200">Alex</div>
+  </div>
+
+  <section id="gallery-section" class="gallery-section" data-aos="fade-up">
+    <h2 data-aos="fade-up" data-aos-delay="100">The Arch(r)ives</h2>
+
+    <div class="gallery-filters" data-aos="fade" data-aos-delay="200">
+      <button data-filter="All">All</button>
+      <button data-filter="Look at the Sky">Look at the Sky</button>
+      <button data-filter="Vitamin Sea">Vitamin Sea</button>
+      <button data-filter="Everything Random">Everything Random</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid" data-aos="fade-up" data-aos-delay="300"></div>
+  </section>
+
+  <section id="digital-art-section" class="gallery-section" style="display: none;" data-aos="fade-up">
+    <h2 data-aos="fade-down" data-aos-delay="100">Digital Drawings</h2>
+    <div class="gallery-grid" id="digitalArtGrid"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 alxndraesc - All Rights Reserved
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch('gallery.json')
+        .then(response => response.json())
+        .then(data => {
+          const galleryGrid = document.getElementById("galleryGrid");
+          const digitalArtGrid = document.getElementById("digitalArtGrid");
+
+          data.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "gallery-item";
+            div.setAttribute("data-category", item.category);
+
+            const img = document.createElement("img");
+            img.src = item.src;
+            img.alt = item.alt;
+
+            div.appendChild(img);
+
+            if (item.category === "Digital Art") {
+              digitalArtGrid.appendChild(div);
+            } else {
+              galleryGrid.appendChild(div);
+            }
+          });
+        });
+
+      document.querySelectorAll('.gallery-filters button').forEach(button => {
+        button.addEventListener('click', function () {
+          const filter = this.getAttribute('data-filter');
+          document.querySelectorAll('#galleryGrid .gallery-item').forEach(item => {
+            item.style.display = (filter === "All" || item.dataset.category === filter) ? "block" : "none";
+          });
+        });
+      });
+    });
+  </script>
+  
+
+<script>
+  const heroImage = document.getElementById("hero-image");
+
+  document.getElementById("show-gallery").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.getElementById("gallery-section").style.display = "block";
+    document.getElementById("digital-art-section").style.display = "none";
+    heroImage.src = "images-gallery/IMG-010.jpg"; // Your Gallery image
+    heroImage.alt = "Featured Artwork from Gallery";
+    document.getElementById("gallery-section").scrollIntoView({ behavior: 'smooth' });
+  });
+
+  document.getElementById("show-digital").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.getElementById("gallery-section").style.display = "none";
+    document.getElementById("digital-art-section").style.display = "block";
+    heroImage.src = "images-digital/digital-hero.jpg"; // Your Digital Art image
+    heroImage.alt = "Featured Digital Artwork";
+    document.getElementById("digital-art-section").scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+  });
+</script>
+
+</body>
+</html>
