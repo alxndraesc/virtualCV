@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ESCUREL - Virtual CV</title>
+    <link rel="website icon" type="png" href="logos/logo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/lux/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,8 +31,11 @@
     
     <div class="nav-container">
         <div class="navbar-box">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-lg">
                 <div class="container">
+                  <a class="navbar-brand">
+                    <img src="logos/logo.png" alt="Logo" style="height: 45px;">
+                </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -46,6 +50,38 @@
             </nav>
         </div>
     </div>
+
+    <script>
+      const links = document.querySelectorAll(".nav-link");
+    
+      links.forEach(link => {
+        link.addEventListener("click", () => {
+          links.forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+    </script>
+
+<script>
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+
+        const yOffset = -90; // Adjust based on your navbar or hero height
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: 'smooth' });
+
+        // Optional: Set the active class manually
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      }
+    });
+  });
+</script>
+
     
     <header class="hero">
         <div class="hero-box"id="floatingProfile">
@@ -270,46 +306,103 @@
         
             <!-- Achievements -->
             <div class="section-content achievements" data-aos="fade-up" data-aos-delay="100">
-                <h4 class="text-center" data-aos="fade-right" data-aos-delay="100">Academic Achievements</h4><br>
-                <div class="achievement-list row row-cols-1 row-cols-md-2 row-cols-lg-6 g-4">
-                    <div class="col" data-aos="zoom-in" data-aos-delay="150">
-                        <div class="achievement-item">
-                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
-                            <p><strong>Dean's Lister</strong><br> Second Semester<br> A.Y. 2021-2022</p>
-                        </div>
-                    </div>
-                    <div class="col" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="achievement-item">
-                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
-                            <p><strong>Dean's Lister</strong><br> First Semester<br> A.Y. 2022-2023</p>
-                        </div>
-                    </div>
-                    <div class="col" data-aos="zoom-in" data-aos-delay="250">
-                        <div class="achievement-item">
-                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
-                            <p><strong>Dean's Lister</strong><br> Second Semester<br> A.Y. 2022-2023</p>
-                        </div>
-                    </div>
-                    <div class="col" data-aos="zoom-in" data-aos-delay="300">
-                        <div class="achievement-item">
-                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
-                            <p><strong>Dean's Lister</strong><br> First Semester<br> A.Y. 2023-2024</p>
-                        </div>
-                    </div>
-                    <div class="col" data-aos="zoom-in" data-aos-delay="350">
-                        <div class="achievement-item">
-                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
-                            <p><strong>Dean's Lister</strong><br> Second Semester<br> A.Y. 2023-2024</p>
-                        </div>
-                    </div>
-                    <div class="col" data-aos="zoom-in" data-aos-delay="400">
-                        <div class="achievement-item">
-                            <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
-                            <p><strong>Dean's Lister</strong><br> First Semester<br> A.Y. 2024-2025</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <h4 class="text-center" data-aos="fade-right" data-aos-delay="100">Academic Achievements</h4><br>
+              
+              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                  <div class="col">
+                      <div class="card-achievement">
+                          <div class="face face1">
+                              <div class="content">
+                                  <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                              </div>
+                          </div>
+                          <div class="face face2">
+                              <div class="content">
+                                  <h5>Dean's Lister</h5>
+                                  <p>Second Semester<br>A.Y. 2021–2022</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="card-achievement">
+                          <div class="face face1">
+                              <div class="content">
+                                  <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                              </div>
+                          </div>
+                          <div class="face face2">
+                              <div class="content">
+                                  <h5>Dean's Lister</h5>
+                                  <p>First Semester<br>A.Y. 2022–2023</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="card-achievement">
+                          <div class="face face1">
+                              <div class="content">
+                                  <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                              </div>
+                          </div>
+                          <div class="face face2">
+                              <div class="content">
+                                  <h5>Dean's Lister</h5>
+                                  <p>Second Semester<br>A.Y. 2022–2023</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="card-achievement">
+                          <div class="face face1">
+                              <div class="content">
+                                  <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                              </div>
+                          </div>
+                          <div class="face face2">
+                              <div class="content">
+                                  <h5>Dean's Lister</h5>
+                                  <p>First Semester<br>A.Y. 2023–2024</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="card-achievement">
+                          <div class="face face1">
+                              <div class="content">
+                                  <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                              </div>
+                          </div>
+                          <div class="face face2">
+                              <div class="content">
+                                  <h5>Dean's Lister</h5>
+                                  <p>Second Semester<br>A.Y. 2023–2024</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="card-achievement">
+                          <div class="face face1">
+                              <div class="content">
+                                  <img src="icons/certificate.png" alt="Achievement Image" class="achievement-img">
+                              </div>
+                          </div>
+                          <div class="face face2">
+                              <div class="content">
+                                  <h5>Dean's Lister</h5>
+                                  <p>First Semester<br>A.Y. 2024–2025</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+            
         
             <br><br><br>
         
@@ -403,8 +496,6 @@
         <div class="feature-item">💊 Pharmacy Management</div>
         <div class="feature-item">🔍 Item Search & Real-Time Inventory Tracking</div>
         <div class="feature-item">📍 Pharmacy Locating</div>
-        <br>
-        <p><strong>Tech Stack:</strong> Laravel, PHP, Bootstrap, JavaScript, MySQL</p>
       </div>
     </div>
   
@@ -493,7 +584,7 @@
 
       <footer class="footer">
         <div class="footer-section logo-section">
-          <img src="logo.svg" alt="Clade Design Logo" class="logo" />
+          <img src="logos/logo.png" alt="Clade Design Logo" class="logo" />
           &copy; 2025 alxndraesc - All Rights Reserved
         </div>
       
@@ -509,9 +600,9 @@
         <div class="footer-divider"></div>
       
         <div class="footer-section social-section">
-          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" aria-label="Github"><i class="bi bi-github"></i></a>
+          <a href="https://www.facebook.com/alx.egdl" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/_alxndramccaela/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://github.com/alixndra0" aria-label="Github"><i class="bi bi-github"></i></a>
         </div>
       </footer>
       

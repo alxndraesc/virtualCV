@@ -3,21 +3,65 @@
     justify-content: center;
     margin-top: 5px;
 }
+
+.navbar-brand{
+  margin-left: 20px;
+}
 .navbar-box {
-    background: rgba(255, 255, 255, 0.749);
-    border-radius: 5px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 900px;
-    position: fixed;
-    z-index: 1000;
+  background: rgba(255, 255, 255, 0.749);
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 900px;
+  position: fixed;
+  z-index: 1000;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Ensures .nav-bar inside is centered */
+  left: 50%;
+  transform: translateX(-50%);
 }
-.navbar {
-    background-color: transparent !important;
+.nav-bar, .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.navbar-light .nav-link {
-    color: #3a3a3a !important;
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
+
+.navbar-nav .nav-link {
+  color: #3a3a3a !important;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  padding: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+  font-size: 1.1rem; 
+  color: #0d6efd;
+  transform: scale(1.1);
+  text-decoration: underline;
+}
+
+.navbar-nav .nav-link.active {
+  color: #d08756 !important;
+  border-radius: 5px;
+  text-decoration: underline;
+}
+
+.navbar-nav .nav-link:hover {
+  transform: scale(1.1);
+}
+
+
 
 .hero {
     position: relative;
@@ -210,32 +254,54 @@ section.active-section {
     list-style: none; 
     padding: 0;
 }
-.achievement-item {
-    background: var(--bs-light);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-weight: 500;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.card-achievement {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  background: #fff;
+  transition: all 0.3s ease;
 }
 
-.achievement-img {
-    width: 80px; /* Adjust size as needed */
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card-achievement .face1 {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  z-index: 1;
 }
 
-.achievement-item:hover .achievement-img {
-    transform: translateY(-5px) scale(1.1);
+.card-achievement .face1 .content img {
+  width: 60px;
+  height: 60px;
 }
+
+.card-achievement .face2 {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  text-align: center;
+  transition: bottom 0.4s ease;
+  z-index: 2;
+  border-radius: 15px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.card-achievement:hover .face2 {
+  bottom: 0;
+}
+
 
 .certificate-gallery {
     display: flex;
@@ -758,7 +824,7 @@ footer {
 }
 
 .logo-section .logo {
-  width: 50px;
+  width: 80px;
   margin-bottom: 1rem;
 }
 
