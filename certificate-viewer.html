@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Certificate Viewer</title>
+  <title>Certificate</title>
   <style>
     body {
       margin: 0;
@@ -39,11 +39,9 @@
   <a href="index.html#portfolio" class="back-button">← GO BACK</a>
 
   <script>
-    // Get the cert query parameter from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const certKey = urlParams.get('cert');
 
-    // Map of certificate keys to image paths
     const certMap = {
       hardware: 'certificates/Computer Hardware Basics-1.png',
       ethical: 'certificates/Ethical Hacker-1.png',

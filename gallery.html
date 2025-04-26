@@ -35,18 +35,21 @@
   }
 
   .nav-links a:hover {
-    transform: scale(1.1); /* Enlarge on hover */
     color: #0d6efd;
-    text-decoration: none;
+    transform: scale(1.1);
+    text-decoration: underline;
   }
 
-  .nav-links a:hover i {
-    color: #0d6efd;
+  .nav-links a:active {
+    color: #d08756 !important;
+    border-radius: 5px;
+    text-decoration: underline;
   }
+
     .hero {
       position: relative;
       width: 100%;
-      height: 400px;
+      height: 450px;
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -58,6 +61,13 @@
       height: 100%;
       object-fit: cover;
     }
+
+    .hero video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
 
     .artist-name {
       position: absolute;
@@ -122,7 +132,7 @@
     }
 
     .gallery-item:hover {
-      transform: translateY(-5px);
+      transform: scale(1.05);
     }
 
     footer {
@@ -143,28 +153,36 @@
     <div class="nav-links d-flex justify-content-between align-items-center w-100 px-3">
       <div class="nav-left">
         <a href="index.html" class="text-decoration-none text-dark fw-bold">
-          <i class="bi bi-arrow-left"></i> Home
+          <i class="bi bi-arrow-left"></i>
         </a>
       </div>
 
       <div class="nav-right d-flex gap-3">
         <a href="#" id="show-gallery" class="text-decoration-none text-dark fw-bold">
-          <i class="bi bi-images"></i> GALLERY
+          GALLERY
         </a>
         <a href="#" id="show-digital" class="text-decoration-none text-dark fw-bold">
-          <i class="bi bi-brush"></i> DIGITAL DRAWINGS
+          DIGITAL DRAWINGS<br>
         </a>
       </div>
     </div>
   </header>
 
   <div class="hero" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-offset="0">
-    <img id="hero-image" src="images-gallery/IMG-010.jpg" alt="Featured Artwork">
-    <div class="artist-name" data-aos="fade-up" data-aos-delay="200">Alex</div>
+
+    <img id="hero-image" src="images-gallery/IMG-010.jpg" alt="Featured Artwork" style="display: block;" />
+  
+    <video id="hero-video" autoplay muted loop playsinline style="display: none;">
+      <source src="images-dga/bg-animation.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  
+    <div class="artist-name" data-aos="fade-up" data-aos-delay="200">alex</div>
   </div>
+  
 
   <section id="gallery-section" class="gallery-section" data-aos="fade-up">
-    <h2 data-aos="fade-up" data-aos-delay="100">The Arch(r)ives</h2>
+    <h2 data-aos="fade-up" data-aos-delay="100">Arch(r)ives</h2>
 
     <div class="gallery-filters" data-aos="fade" data-aos-delay="200">
       <button data-filter="All">All</button>
@@ -187,23 +205,24 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      const galleryGrid = document.getElementById("galleryGrid");
+      const digitalArtGrid = document.getElementById("digitalArtGrid");
+  
+      // Fetch traditional gallery items
       fetch('gallery.json')
         .then(response => response.json())
         .then(data => {
-          const galleryGrid = document.getElementById("galleryGrid");
-          const digitalArtGrid = document.getElementById("digitalArtGrid");
-
           data.forEach(item => {
             const div = document.createElement("div");
             div.className = "gallery-item";
             div.setAttribute("data-category", item.category);
-
+  
             const img = document.createElement("img");
             img.src = item.src;
             img.alt = item.alt;
-
+  
             div.appendChild(img);
-
+  
             if (item.category === "Digital Art") {
               digitalArtGrid.appendChild(div);
             } else {
@@ -211,7 +230,26 @@
             }
           });
         });
-
+  
+      // Fetch digital drawings only for the Digital Drawings section
+      fetch('digital-drawings.json')
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "gallery-item";
+            div.setAttribute("data-category", item.category);
+  
+            const img = document.createElement("img");
+            img.src = item.src;
+            img.alt = item.alt;
+  
+            div.appendChild(img);
+            digitalArtGrid.appendChild(div);
+          });
+        });
+  
+      // Filters for the main gallery
       document.querySelectorAll('.gallery-filters button').forEach(button => {
         button.addEventListener('click', function () {
           const filter = this.getAttribute('data-filter');
@@ -224,29 +262,39 @@
   </script>
   
 
-<script>
-  const heroImage = document.getElementById("hero-image");
+  <script>
+    const heroImage = document.getElementById("hero-image");
+    const heroVideo = document.getElementById("hero-video");
+  
+    document.getElementById("show-gallery").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("gallery-section").style.display = "block";
+      document.getElementById("digital-art-section").style.display = "none";
+  
+      // Show image, hide video
+      heroImage.style.display = "block";
+      heroVideo.style.display = "none";
+      heroImage.src = "images-gallery/IMG-010.jpg";
+      heroImage.alt = "Featured Artwork from Gallery";
+  
+      document.getElementById("gallery-section").scrollIntoView({ behavior: "smooth" });
+    });
+  
+    document.getElementById("show-digital").addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("gallery-section").style.display = "none";
+      document.getElementById("digital-art-section").style.display = "block";
+  
+      // Show video, hide image
+      heroImage.style.display = "none";
+      heroVideo.style.display = "block";
+  
+      document.getElementById("digital-art-section").scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+  
 
-  document.getElementById("show-gallery").addEventListener("click", function(e) {
-    e.preventDefault();
-    document.getElementById("gallery-section").style.display = "block";
-    document.getElementById("digital-art-section").style.display = "none";
-    heroImage.src = "images-gallery/IMG-010.jpg"; // Your Gallery image
-    heroImage.alt = "Featured Artwork from Gallery";
-    document.getElementById("gallery-section").scrollIntoView({ behavior: 'smooth' });
-  });
 
-  document.getElementById("show-digital").addEventListener("click", function(e) {
-    e.preventDefault();
-    document.getElementById("gallery-section").style.display = "none";
-    document.getElementById("digital-art-section").style.display = "block";
-    heroImage.src = "images-digital/digital-hero.jpg"; // Your Digital Art image
-    heroImage.alt = "Featured Digital Artwork";
-    document.getElementById("digital-art-section").scrollIntoView({ behavior: 'smooth' });
-  });
-</script>
-
-<!-- AOS Script -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({

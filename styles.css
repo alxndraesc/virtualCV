@@ -4,8 +4,17 @@
     margin-top: 5px;
 }
 
-.navbar-brand{
-  margin-left: 20px;
+.nav-links-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  margin-right: 5%;
+}
+
+.navbar-brand {
+  margin-left: 5%;
+  display: flex;
+  align-items: center;
 }
 .navbar-box {
   background: rgba(255, 255, 255, 0.749);
@@ -18,12 +27,17 @@
   height: 75px;
   display: flex;
   align-items: center;
-  justify-content: center; /* Ensures .nav-bar inside is centered */
+  justify-content: center; 
   left: 50%;
   transform: translateX(-50%);
 }
-.nav-bar, .container {
-  height: 100%;
+
+.navbar-box.scrolled {
+  background: #ffffff; /* Or any solid color */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -177,16 +191,16 @@
     color: #333;
 }
 .about-me-container {
-    max-width: 1000px; /* Limit the width of the content */
-    margin: 0 auto; /* Center the container */
+    max-width: 1000px; 
+    margin: 0 auto; 
     padding-bottom: 70px;
 }
 
 .intro-text {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #333; /* Dark text for readability */
-    text-align: justify; /* Justify text for neat alignment */
+    color: #333;
+    text-align: justify; 
 }
 
 .btn-success {
@@ -316,7 +330,7 @@ section.active-section {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-weight: 500;
-    height: 270px; /* Adjust height as needed */
+    height: 270px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -324,7 +338,7 @@ section.active-section {
 }
 
 .certificate-img {
-    width: 200px; /* Adjust size as needed */
+    width: 200px; 
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
@@ -341,53 +355,11 @@ cursor: pointer;
 transition: 0.3s;
 margin-bottom: 10px;
 }
-
-.certificate-popup {
-    position: fixed; /* keeps it pinned to the viewport */
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6); /* dimmed overlay */
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    backdrop-filter: blur(3px); /* soft blur background */
-  }
-  
-  .cert-content {
-    background-color: #ffffff;
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    max-width: 750px;
-    width: 90%;
-    text-align: center;
-    position: relative;
-    animation: popupFadeIn 0.3s ease-out;
-    overflow: hidden;
-  }
   
   .cert-content img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-  }
-  
-  .close-btn {
-    position: absolute;
-    top: 14px;
-    right: 20px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #444;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  
-  .close-btn:hover {
-    transform: scale(1.2);
   }
   
   @keyframes popupFadeIn {
@@ -644,7 +616,7 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
     background-color: #222;
-    color: #fff;
+    color: #6e6e6e;
     padding: 0.5rem;
   }
   .hidden {
